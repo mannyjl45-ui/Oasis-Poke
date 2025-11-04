@@ -334,6 +334,7 @@ class AutoencoderKL(nn.Module):
         return self.predictor.weight
 
 
+
 def ViT_L_20_Shallow_Encoder(**kwargs):
     if "latent_dim" in kwargs:
         latent_dim = kwargs.pop("latent_dim")
@@ -353,7 +354,25 @@ def ViT_L_20_Shallow_Encoder(**kwargs):
         **kwargs,
     )
 
-
+def mini_ViT(**kwargs):
+    if "latent_dim" in kwargs:
+        latent_dim = kwargs.pop("latent_dim")
+    else:
+        latent_dim = 16
+    return AutoencoderKL(
+        latent_dim=latent_dim,
+        patch_size=20,
+        enc_dim=256,
+        enc_depth=3,
+        enc_heads=16,
+        dec_dim=256,
+        dec_depth=6,
+        dec_heads=16,
+        input_height=160,
+        input_width=240,
+        **kwargs,
+    )
 VAE_models = {
     "vit-l-20-shallow-encoder": ViT_L_20_Shallow_Encoder,
+    "miniVit" : mini_ViT
 }
