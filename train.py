@@ -1,4 +1,3 @@
-contents=
 """
 Training script for an OASIS-style DiT + ViT-VAE model on Pokemon gameplay frames.
 
