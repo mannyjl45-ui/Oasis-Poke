@@ -348,8 +348,8 @@ def ViT_L_20_Shallow_Encoder(**kwargs):
         dec_dim=1024,
         dec_depth=12,
         dec_heads=16,
-        input_height=360,
-        input_width=640,
+        input_height=160,
+        input_width=240,
         **kwargs,
     )
 
