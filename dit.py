@@ -195,19 +195,21 @@ class SpatioTemporalDiTBlock(nn.Module):
 class DiT(nn.Module):
     """
     Diffusion model with a Transformer backbone.
+    Updated input_h and input_w on calculated patch size of 20 to be 8x20 and 12x20
+    Updated external_cond_dim from 25 to 10 because GBA uses 10 buttons
     """
 
     def __init__(
         self,
-        input_h=18,
-        input_w=32,
+        input_h=8,
+        input_w=12,
         patch_size=2,
         in_channels=16,
         hidden_size=1024,
         depth=12,
         num_heads=16,
         mlp_ratio=4.0,
-        external_cond_dim=25,
+        external_cond_dim=10,
         max_frames=32,
     ):
         super().__init__()
