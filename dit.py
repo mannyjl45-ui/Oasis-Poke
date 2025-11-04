@@ -329,6 +329,12 @@ def DiT_S_2():
         depth=16,
         num_heads=16,
     )
+def mini_DiT():
+    return DiT(
+        patch_size=2,
+        hidden_size=128,
+        depth=2,
+        num_heads=16,
+    )
 
-
-DiT_models = {"DiT-S/2": DiT_S_2}
+DiT_models = {"DiT-S/2": DiT_S_2,"miniDit":mini_DiT}
